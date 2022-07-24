@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Welcome to pinterest</title>
+      <style type="text/css">
+        body{
+          background-image: url(https://img.freepik.com/free-vector/vintage-ornamental-flowers-background_52683-28040.jpg?t=st=1658039136~exp=1658039736~hmac=0475c66856eee0b8cdb396668b995e8cda35dde84c736310d1e140a4d09bbe47&w=1060);
+          background-size: cover ;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+
+         .itemstyle{
+         border-radius: 26px;
+         }
+         .itemstyle1{
+         color: black;
+         }
+         .parent{
+         padding: 0 0 0 30px ;
+         width: 350px;
+         display: grid;
+         grid-template-columns: 1fr 3fr;
+         }
+         .parent img{
+         height: 80px;
+         border-radius: 44px;
+         }
+         .profiledetails{
+         display: grid;
+         grid-template-columns: 1fr;
+         }
+
+         .maincontent{
+          margin: 20px;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+          grid-gap: 1px;
+         }
+
+         .posts{
+          margin: 4px;
+         }
+
+         .posts img{
+            width: 220px;
+            border-radius: 30px;
+            cursor: zoom-in;
+         }
+         @media screen and (max-width:1248px){
+          .maincontent{
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+          }
+        }
+
+                 @media screen and (max-width:925px){
+          .maincontent{
+            grid-template-columns: 1fr 1fr 1fr;
+          }
+        }
+         @media screen and (max-width:658px){
+          .maincontent{
+grid-template-columns: 1fr 1fr;          }
+.posts img{
+            width: 230px;
+          }
+         }
+         @media screen and (max-width:472px){
+          .maincontent{
+            grid-template-columns: 1fr;
+          }
+          .posts img{
+            width: 330px;
+          }
+        }
+
+        .posts img:hover{
+          background-color: white;
+           opacity: 0.8;
+            border: 1px double black;
+     
+        }
+
+      .posts:hover > .pinit{
+        /*background-color: lightgray;*/
+        display: block;
+      }
+
+        .pinit{
+
+          position: absolute;
+          background-color: red;
+          margin:10px;
+          color: white;
+          border-radius: 8px 0 8px 0;
+          border: none;
+          z-index: 3;
+          display: none;
+
+        }
+        .pinit:hover{
+          background-color: rgb(190, 2, 22);
+        }
+
+
+
+
+      </style>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-lg bg-light">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" style="height:50px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item  ">
+                     <a class="nav-link itemstyle " aria-current="page" href="#" id="home" onclick="active1()">Home</a>
+                  </li>
+                  <li class="nav-item ">
+                     <a class="nav-link  itemstyle" aria-current="page" href="#" id="today" onclick="active2()">Today</a>
+                  </li>
+                  <li class="nav-item dropdown ">
+                     <a class="nav-link dropdown-toggle itemstyle1" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     Create
+                     </a>
+                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Create idea pin</a></li>
+                        <li><a class="dropdown-item" href="#">Create pin </a></li>
+                     </ul>
+                  </li>
+               </ul>
+               <form class="d-flex p-2 flex-fill" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border-radius: 30px;">
+               </form>
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item ">
+                     <a class="nav-link  itemstyle" aria-current="page" href="#"><i class="fa fa-bell" style="font-size:20px"></i></a>
+                  </li>
+                  <li class="nav-item ">
+                     <a class="nav-link  itemstyle" aria-current="page" href="#"><i class="fa fa-comment-o" style="font-size:20px"></i></a>
+                  </li>
+                  <li class="nav-item ">
+                     <a class="nav-link  itemstyle" aria-current="page" href="#"><img src="cat.jpg" style="height:22px; border-radius:20px"></a>
+                  </li>
+                  <li class="nav-item dropstart ">
+                     <a class="nav-link dropdown-toggle itemstyle1" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                     <ul class="dropdown-menu " aria-labelledby="navbarDropdown1">
+                        <i style="color:gray;">Currently In:</i>
+                        <div class="parent">
+                           <div class="profilepic">
+                              <img src="cat.jpg" alt="profile image">
+                           </div>
+                           <div class="profiledetails">
+                              <strong class="dropdown-item">Your Name</strong>
+                              <span class="dropdown-item"style="color: gray;">your@email.com</span>
+                              <span class="dropdown-item"style="color: gray;">Personal Account</span>
+                           </div>
+                        </div>
+                        <i style="color:gray;">Your Account</i>
+                        <li><a class="dropdown-item" href="#">Add account</a></li>
+                        <li><a class="dropdown-item" href="#">Convert to business</a></li>
+                        <i style="color:gray;">More Optons</i>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Tune your home field</a></li>
+                        <li><a class="dropdown-item" href="#">Install the windows app</a></li>
+                        <li><a class="dropdown-item" href="#">Get help <i class="fa fa-external-link"></i></a></li>
+                        <li><a class="dropdown-item" href="#">See terms and privacy <i class="fa fa-external-link"></i></a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+<strong>Want the best Pinterest? Get the free Pinterest desktop app  <i class="fa fa-arrow-right"></i></strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+
+<div class="maincontent">
+
+  <div class="posts">
+    <button class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+    <img src="https://i.pinimg.com/564x/4a/37/74/4a3774b1124a65d8cf0cb9432c50dab0.jpg">
+  </div>
+
+  <div class="posts">
+        <button class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/77/d0/8d/77d08d01ce3728996403827d999d08bf.jpg">
+  </div>
+
+  <div class="posts">
+        <button class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/b7/2d/3b/b72d3bbd8fb440d72574e1842e4c24ad.jpg">
+  </div>
+
+  <div class="posts">
+        <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/08/86/e2/0886e29229030e2ba40ce7d166cd965e.jpg">
+  </div>
+
+  <div class="posts">
+      <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/bd/30/07/bd3007913412949b47774ce248fa8348.jpg">
+  </div>
+  <div class="posts">
+        <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/48/03/46/4803463b783dc9a034653bee87e8fddc.jpg">
+  </div>
+  <div class="posts">
+        <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/fe/4b/4f/fe4b4f716da2982b04fd5a06af387c21.jpg">
+  </div>
+  <div class="posts">
+        <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/1c/fc/80/1cfc80b8e03732bfc75c274f62c1d7a7.jpg">
+  </div>
+  <div class="posts">
+        <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/ac/73/42/ac7342fe4c5a2cb234c62e1bc4962388.jpg">
+  </div>
+  <div class="posts">
+        <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/45/aa/1f/45aa1f7f27e6438dd93065029a98f128.jpg">
+  </div>
+  <div class="posts">
+        <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/5d/68/26/5d68262cb06a66d0f78fb956bd709327.jpg">
+  </div>
+  <div class="posts">
+        <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/91/a0/35/91a03534157e9a0d9ffc67bff835880b.jpg">
+  </div>
+  <div class="posts">
+        <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/94/b0/80/94b080e0286b3a9bbc67d8191edfd4c5.jpg">
+  </div>
+  <div class="posts">
+        <button  class="pinit">Pin <i class="fa fa-pinterest-p"></i></button>
+
+    <img src="https://i.pinimg.com/236x/5d/8b/42/5d8b42d88d99cb728fa16c4e125b5f01.jpg">
+  </div>
+
+
+  
+</div>
+      <script type="text/javascript">
+         let h=document.getElementById('home');
+         let i=document.getElementById('today');
+         
+         function active1() {
+          h.style.background='black';
+          h.style.color='white';
+         
+          i.style.background='white';
+          i.style.color='black';
+         }
+         
+         function active2(){
+          i.style.background='black';
+          i.style.color='white';
+         
+          h.style.background='white';
+          h.style.color='black';
+         }
+         
+         
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+   </body>
+</html>
